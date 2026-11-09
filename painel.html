@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Nina · Conhecimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="top">
+        <h1>🧠 Conhecimento da Nina</h1>
+        <div><a class="lnk" href="nina.html" title="Chat">💬</a> <a class="lnk" href="index.html" title="Agenda">📅</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <strong>Como ela deve te chamar?</strong>
+        <input id="nome" placeholder="Seu nome">
+        <button id="salvarPerfil" type="button">Salvar</button>
+        <div id="msgPerfil"></div>
+    </div>
+
+    <div class="card">
+        <strong>Conte à Nina o que ela precisa saber</strong>
+        <div class="meta dica">Escreva do seu jeito, como se contasse a uma pessoa. Você não precisa dizer o que ela
+            deve fazer: só o que ela precisa saber.</div>
+        <label for="cat">Assunto</label>
+        <select id="cat"></select>
+        <label for="txt">O que ela deve saber</label>
+        <textarea id="txt" rows="5"
+            placeholder="Ex.: Meu pai se chama José, é aposentado e adora pescar. Minha mãe se chama Ana e faz aniversário em março."></textarea>
+        <div class="row2"><button id="mic" class="sec" type="button">🎤 Ditar</button><button id="add"
+                type="button">Salvar</button></div>
+        <div class="meta aviso">Não escreva senhas, cartões, CPF ou RG.</div>
+        <div id="msg"></div>
+    </div>
+
+    <div class="card">
+        <input id="busca" placeholder="Buscar no que a Nina sabe...">
+        <div id="filtros" class="chips"></div>
+    </div>
+    <div id="listaNotas"></div>
+
+    <div class="card">
+        <strong>Voz da Nina</strong>
+        <label for="voz">Escolha a voz</label>
+        <select id="voz"></select>
+        <button id="testarVoz" class="sec" type="button">🔊 Testar</button>
+        <div id="vozInfo" class="meta dica"></div>
+    </div>
+
+    <details class="card">
+        <summary>Avançado: respostas fixas e frases da Nina</summary>
+        <label for="saudacao">Quando você abrir o chat, ela diz:</label>
+        <textarea id="saudacao" rows="2"></textarea>
+        <label for="naosei">Quando ela não souber responder, diz:</label>
+        <textarea id="naosei" rows="2"></textarea>
+        <div class="meta dica">Use {nome}, {saudacao} e {hora}.</div>
+        <button id="salvarAv" class="sec" type="button">Salvar frases</button>
+        <div id="msgAv"></div>
+        <hr>
+        <label for="gat">Quando eu disser… (uma frase por linha)</label>
+        <textarea id="gat" rows="2"></textarea>
+        <label for="res">A Nina responde…</label>
+        <textarea id="res" rows="2"></textarea>
+        <button id="ensinar" class="sec" type="button">Ensinar resposta fixa</button>
+        <div id="msgEns"></div>
+        <div id="listaEnsinos"></div>
+    </details>
+    <script type="module" src="painel.js"></script>
+</body>
+
+</html>

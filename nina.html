@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#1f3a34">
+    <title>Nina</title>
+    <link rel="stylesheet" href="nina.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="topo">
+            <div class="topo-info">
+                <h1>Nina</h1>
+                <span id="status" class="status">conectando…</span>
+            </div>
+            <div class="topo-acoes">
+                <button id="btn-conversa" class="btn-icone" type="button"
+                    title="Modo conversa (mãos livres)">🎧</button>
+                <button id="btn-voz" class="btn-icone" type="button" title="Voz">🔊</button>
+                <a class="btn-icone" href="painel.html" aria-label="Painel de notas" title="Painel de notas">📝</a>
+                <a class="btn-icone" href="index.html" aria-label="Abrir agenda" title="Abrir agenda">📅</a>
+                <button id="btn-limpar" class="btn-icone" type="button" aria-label="Limpar conversa"
+                    title="Limpar conversa">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main id="chat" class="chat" aria-live="polite">
+            <p id="vazio" class="vazio">Fale com a Nina. Ex.: marca dentista quinta às 15h</p>
+        </main>
+
+        <form id="form" class="entrada" autocomplete="off">
+            <textarea id="texto" rows="1" placeholder="Digite sua mensagem" aria-label="Mensagem"></textarea>
+            <button id="btn-mic" class="btn-mic" type="button" aria-label="Falar" title="Falar">🎤</button>
+            <button id="btn-enviar" class="btn-enviar" type="submit" aria-label="Enviar">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <script type="module" src="nina.js"></script>
+</body>
+
+</html>

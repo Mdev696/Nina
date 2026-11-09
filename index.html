@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <div id="telaLogin" class="hide">
+    <h1>📅 Nina</h1>
+    <div class="card">
+      <label for="lEmail">E-mail</label>
+      <input id="lEmail" type="email" autocomplete="email">
+      <label for="lSenha">Senha (mínimo 6 caracteres)</label>
+      <input id="lSenha" type="password" autocomplete="current-password">
+      <button id="btnEntrar" type="button">Entrar</button>
+      <button id="btnCriar" type="button" class="sec">Criar conta</button>
+      <div id="msg"></div>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <div id="telaAgenda" class="hide">
+    <div class="top">
+      <h1>📅 Nina</h1>
+      <div class="menu"><a class="lnk" href="nina.html" title="Chat com a Nina">💬</a><a class="lnk" href="painel.html"
+          title="Painel de notas">📝</a><button id="btnSair" class="ghost" type="button">Sair</button></div>
+    </div>
+    <div id="avisos"></div>
+
+    <div class="card">
+      <strong>💬 Converse com a Nina</strong>
+      <div id="chat" class="chat"></div>
+      <div class="row chatbar">
+        <input id="chatMsg" placeholder="Ex.: marca dentista quinta às 15h" autocomplete="off">
+        <button id="chatEnviar" type="button">Enviar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>Novo compromisso</strong>
+      <label for="titulo">Título</label>
+      <input id="titulo" placeholder="Ex.: Consulta médica">
+      <div class="row">
+        <div><label for="data">Data</label><input id="data" type="date"></div>
+        <div><label for="hora">Hora</label><input id="hora" type="time"></div>
+      </div>
+      <label for="obs">Observação (opcional)</label>
+      <textarea id="obs" rows="2" placeholder="Local, detalhes..."></textarea>
+      <div class="chk">
+        <label><input type="checkbox" id="cWpp" checked> WhatsApp</label>
+        <label><input type="checkbox" id="cMail" checked> E-mail</label>
+      </div>
+      <button id="add" type="button">Adicionar à agenda</button>
+      <div id="msg2"></div>
+    </div>
+
+    <div id="lista"></div>
+  </div>
+
+  <script type="module" src="agenda.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+:root {
+    --fundo: #f3f5f2;
+    --superficie: #ffffff;
+    --texto: #1b2420;
+    --texto-suave: #66726c;
+    --verde: #1f3a34;
+    --verde-claro: #2f5a4f;
+    --usuario: #1f3a34;
+    --usuario-texto: #ffffff;
+    --ia: #ffffff;
+    --borda: #dde3df;
+    --erro: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #121715;
+        --superficie: #1b2320;
+        --texto: #e8eeea;
+        --texto-suave: #98a59e;
+        --verde: #16231f;
+        --verde-claro: #4a8a79;
+        --usuario: #3b7a68;
+        --usuario-texto: #ffffff;
+        --ia: #1f2925;
+        --borda: #2b3631;
+        --erro: #f2b8b5;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    -webkit-text-size-adjust: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--fundo);
+}
+
+/* Topo */
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 12px;
+    background: var(--verde);
+    color: #fff;
+}
+
+.topo h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.status {
+    font-size: .78rem;
+    opacity: .75;
+}
+
+.status.online::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: #7be0a8;
+}
+
+.btn-icone {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.btn-icone:active {
+    background: rgba(255, 255, 255, .15);
+}
+
+/* Mensagens */
+.chat {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 12px;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+.vazio {
+    margin: auto;
+    max-width: 24ch;
+    text-align: center;
+    color: var(--texto-suave);
+    line-height: 1.5;
+}
+
+.msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    line-height: 1.45;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.msg.user {
+    align-self: flex-end;
+    background: var(--usuario);
+    color: var(--usuario-texto);
+    border-bottom-right-radius: 5px;
+}
+
+.msg.assistant {
+    align-self: flex-start;
+    background: var(--ia);
+    border: 1px solid var(--borda);
+    border-bottom-left-radius: 5px;
+}
+
+.msg.erro {
+    color: var(--erro);
+    border-color: var(--erro);
+}
+
+/* Indicador de digitação */
+.digitando {
+    display: flex;
+    gap: 4px;
+    padding: 14px 16px;
+}
+
+.digitando span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--texto-suave);
+    animation: pulso 1s infinite ease-in-out;
+}
+
+.digitando span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.digitando span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes pulso {
+
+    0%,
+    80%,
+    100% {
+        opacity: .3;
+        transform: scale(.8);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Entrada */
+.entrada {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 10px 12px calc(env(safe-area-inset-bottom, 0px) + 10px);
+    background: var(--superficie);
+    border-top: 1px solid var(--borda);
+}
+
+.entrada textarea {
+    flex: 1;
+    max-height: 140px;
+    padding: 11px 16px;
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    background: var(--fundo);
+    color: var(--texto);
+    font: inherit;
+    font-size: 16px;
+    /* evita zoom no iOS */
+    line-height: 1.3;
+    resize: none;
+    outline: none;
+}
+
+.entrada textarea:focus {
+    border-color: var(--verde-claro);
+}
+
+.btn-enviar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-enviar:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--verde-claro);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chat {
+        scroll-behavior: auto;
+    }
+
+    .digitando span {
+        animation: none;
+        opacity: .7;
+    }
+}
+
+@media (min-width: 700px) {
+    .app {
+        border-left: 1px solid var(--borda);
+        border-right: 1px solid var(--borda);
+    }
+}
+
+.topo-acoes {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+a.btn-icone {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.btn-mic {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--borda);
+    border-radius: 50%;
+    background: var(--superficie);
+    color: var(--texto);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn-mic.ouvindo {
+    background: var(--erro);
+    color: #fff;
+    animation: pulso 1s infinite ease-in-out;
+}
+
+.msg a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.btn-icone.ativo {
+    background: rgba(255, 255, 255, .28);
+}
